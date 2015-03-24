@@ -56,27 +56,27 @@ func (l *Logger) lvlLog(lvl LogLevel, fmt string, v []interface{}) {
 	}
 }
 
-func (l *Logger) ERROR(fmt string, v ...interface{}) {
+func (l *Logger) Error(fmt string, v ...interface{}) {
 	l.lvlLog(LogError, fmt, v)
 }
 
-func (l *Logger) DEBUG(fmt string, v ...interface{}) {
+func (l *Logger) Debug(fmt string, v ...interface{}) {
 	l.lvlLog(LogDebug, fmt, v)
 }
 
-func (l *Logger) WARN(fmt string, v ...interface{}) {
+func (l *Logger) Warn(fmt string, v ...interface{}) {
 	l.lvlLog(LogWarn, fmt, v)
 }
 
-func (l *Logger) INFO(fmt string, v ...interface{}) {
+func (l *Logger) Info(fmt string, v ...interface{}) {
 	l.lvlLog(LogInfo, fmt, v)
 }
 
-func (l *Logger) NORMAL(fmt string, v ...interface{}) {
+func (l *Logger) Normal(fmt string, v ...interface{}) {
 	l.lvlLog(LogNormal, fmt, v)
 }
 
-func (l *Logger) FATAL(fmt string, v ...interface{}) {
+func (l *Logger) Fatal(fmt string, v ...interface{}) {
 	L.Fatalf(fmt, v...)
 }
 
@@ -92,28 +92,32 @@ func (l *Logger) SetLevel(lvl LogLevel) {
 	l.level = lvl
 }
 
-func ERROR(fmt string, v ...interface{}) {
+func Error(fmt string, v ...interface{}) {
 	Default.lvlLog(LogError, fmt, v)
 }
 
-func DEBUG(fmt string, v ...interface{}) {
+func Debug(fmt string, v ...interface{}) {
 	Default.lvlLog(LogDebug, fmt, v)
 }
 
-func WARN(fmt string, v ...interface{}) {
+func Warn(fmt string, v ...interface{}) {
 	Default.lvlLog(LogWarn, fmt, v)
 }
 
-func INFO(fmt string, v ...interface{}) {
+func Info(fmt string, v ...interface{}) {
 	Default.lvlLog(LogInfo, fmt, v)
 }
 
-func NORMAL(fmt string, v ...interface{}) {
+func Normal(fmt string, v ...interface{}) {
 	Default.lvlLog(LogNormal, fmt, v)
 }
 
-func FATAL(fmt string, v ...interface{}) {
+func Fatal(fmt string, v ...interface{}) {
 	L.Fatalf(fmt, v...)
+}
+
+func TODO(fmt string, v ...interface{}) {
+	Default.lvlLog(LogQuiet, fmt, v)
 }
 
 func Flags() int {
